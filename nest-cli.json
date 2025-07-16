@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "projects": {
+    "task_api_nest": {
+      "sourceRoot": "src",
+      "entryFile": "main",
+      "compilerOptions": {
+        "deleteOutDir": true
+      }
+    }
+  },
+  "schematics": {
+    "@nestjs/schematics/controllers": {
+      "path": "src/presentation/controllers/[name]",
+      "flat": false
+    },
+    "@nestjs/schematics/modules": {
+      "path": "src/presentation/modules/[name]",
+      "flat": false
+    },
+    "@nestjs/schematics/services": {
+      "path": "src/infrastructure/services/[name]",
+      "flat": false
+    },
+    "entity": {
+      "path": "src/domain/entities/[name]",
+      "flat": false
+    },
+    "dto": {
+      "path": "src/presentation/dto/[name]",
+      "flat": false
+    }
+  }
+}
