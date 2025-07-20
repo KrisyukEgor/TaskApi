@@ -5,14 +5,16 @@ import { CreateTaskUseCase } from "src/application/use-cases/create-task.use-cas
 import { TaskTypeOrmRepository } from "src/infrastructure/repositories/task.repository";
 import { AbstractTaskRepository } from "src/domain/repository/task.repository";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Task } from "src/domain/entities/task.entity";
+import { TaskOrmEntity } from "src/infrastructure/orm-entities/task.orm-entity";
+import { FindAllTasksUseCase } from "src/application/use-cases/find-all-tasks.use-case";
 
  @Module({
-   imports: [TypeOrmModule.forFeature([Task])],
+   imports: [TypeOrmModule.forFeature([TaskOrmEntity])],
    controllers: [TaskController],
    providers: [
      TaskService,
      CreateTaskUseCase,
+     FindAllTasksUseCase,
      TaskTypeOrmRepository,
      {
        provide: AbstractTaskRepository,

@@ -22,6 +22,10 @@ export class TaskStatus {
         return this.status === TaskStatusValue.COMPLETED;
     }
 
+    public get value():TaskStatusValue {
+        return this.status;
+    }
+
     public static readonly OPEN = new TaskStatus(TaskStatusValue.OPEN);
     public static readonly IN_PROGRESS = new TaskStatus(TaskStatusValue.IN_PROGRESS);
     public static readonly COMPLETED = new TaskStatus(TaskStatusValue.COMPLETED);

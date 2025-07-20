@@ -1,24 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { TaskStatus } from "../value-objects/task-status.vo";
 
-@Entity()
 export class Task {
-
-    @PrimaryGeneratedColumn()
     id: string;
-
-    @Column()
     title: string;
-
-    @Column({nullable: true})
     description?: string;
-    
-    @Column('varchar')
     private status: TaskStatus;
 
-    constructor(title: string, description?: string) {
+    constructor(id: string, title: string, description?: string, status: TaskStatus = TaskStatus.OPEN) {
+        this.id = id;
         this.title = title;
         this.description = description;
+        this.status = status;
     }
     
     public start(): void {
